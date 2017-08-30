@@ -1,0 +1,26 @@
+<section class="panel panel-default" id="details">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{details.title}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{details.poster_path}}" alt="" class="img-responsive">
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+
+                <h4>{{details.title}}</h4>
+                <p>Genres: <span *ngFor="let genre of details.genres">{{genre.name}}, </span> </p>
+                <p>Release Date: {{details.release_date}}</p>
+                <label for="">Summary:</label>
+                <p>{{details.overview}}</p>
+                <p>
+                    <a href="{{details.homepage}}" class="btn btn-primary" target="_blank">Visit Movie Website</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

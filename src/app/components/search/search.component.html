@@ -1,0 +1,72 @@
+<section class="jumbotron">
+    <div class="container">
+        <h1>Find A Movie</h1>
+        <p class="lead">Search for a movie in the form below</p>
+        <form (submit)="getResults()">
+            <input type="text" class="form-control" id="search" [(ngModel)]="search" name="search">
+            <button class="btn btn-primary" type="submit">Find</button>
+        </form>
+    </div>
+</section>
+
+<div *ngIf="results">
+    <section class="panel panel-default" id="popular-movies">
+        <div class="panel-heading">
+            <h3 class="panel-title">Search Results</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4 col-md-2" *ngFor="let movie of results; let i = index">
+                    <div class="card " *ngIf="i < 6">
+                        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="" class="img-responsive">
+                        <div class="caption ">
+                            <h4>{{movie.title}}</h4>
+                            <p>{{movie.release_date}}</p>
+                            <p><a routerLink="/movie/{{movie.id}}" class="btn btn-default ">View Details >></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="panel panel-default" id="popular-movies">
+    <div class="panel-heading">
+        <h3 class="panel-title">Popular Movies</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4 col-md-2" *ngFor="let movie of popularMovies; let i = index">
+                <div class="card " *ngIf="i < 6">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="" class="img-responsive">
+                    <div class="caption ">
+                        <h4>{{movie.title}}</h4>
+                        <p>{{movie.release_date}}</p>
+                        <p><a routerLink="/movie/{{movie.id}}" class="btn btn-default ">View Details >></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="panel panel-default" id="recent-movies">
+    <div class="panel-heading">
+        <h3 class="panel-title">Recent Movies</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4 col-md-2" *ngFor="let movie of recentReleases; let i = index">
+                <div class="card " *ngIf="i < 6">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="" class="img-responsive">
+                    <div class="caption ">
+                        <h4>{{movie.title}}</h4>
+                        <p>{{movie.release_date}}</p>
+                        <p><a routerLink="/movie/{{movie.id}}" class="btn btn-default ">View Details >></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
